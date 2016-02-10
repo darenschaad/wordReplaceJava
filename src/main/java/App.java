@@ -2,6 +2,8 @@ import java.util.HashMap;
 import java.util.Random;
 import java.io.*;
 
+import org.apache.commons.lang.StringUtils;
+
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
@@ -32,7 +34,13 @@ public class App {
 
 
   public static String replaceWord(String userSentence, String wordToReplace, String replaceWith) {
-    String newSentence = userSentence.replaceAll(wordToReplace, replaceWith);
+    String[] userSentenceArray = userSentence.split("\\s+");
+    for (Integer i = 0 ; i < userSentenceArray.length ; i++){
+      if (wordToReplace.equals(userSentenceArray[i])) {
+        userSentenceArray[i] = replaceWith;
+      }
+    }
+    String newSentence = StringUtils.join(userSentenceArray, " ");
     return newSentence;
   }
 }

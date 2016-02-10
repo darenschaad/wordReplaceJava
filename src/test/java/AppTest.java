@@ -22,11 +22,11 @@ public class AppTest extends FluentTest {
   @Test
   public void replaceWord_findsAWordAndReplacesAllThoseWords() {
     App testApp = new App();
-    assertEquals("hello universe, cruel universe", testApp.replaceWord("hello world, cruel world", "world", "universe"));
+    assertEquals("hello universe , cruel universe", testApp.replaceWord("hello world , cruel world", "world", "universe"));
   }
   @Test
   public void replaceWords_findsAWordOrPartialWordAndReplacesAllThoseWords() {
     App testApp = new App();
-    assertEquals("walking my dog to the doghedral", testApp.replaceWord("walking my cat to the cathedral", "cat", "dog"));
+    assertEquals("walking my dog to the cathedral", testApp.replaceWord("walking my cat to the cathedral", "cat", "dog"));
   }
 }
