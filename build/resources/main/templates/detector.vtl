@@ -1,12 +1,28 @@
+<h1>Replace a Word</h1>
+
+<p>Enter in a sentence, then a word to replace in that sentence</p>
+
+<form action='/detector' method='get'>
+  <div class="form-group">
+    <label for="sentence">Enter a sentence</label>
+    <input id="sentence" name="sentence" class="form-control" type="text">
+  </div>
+
+  <div class="form-group">
+    <label for="replaceWord">Enter a word to replace</label>
+    <input id="replaceWord" name="replaceWord" class="form-control" type="text">
+  </div>
+
+  <div class="form-group">
+    <label for="replaceWith">Replace it with</label>
+    <input id="replaceWith" name="replaceWith" class="form-control" type="text">
+  </div>
+
+  <button type="submit" class="btn btn-info">Replace your word</button>
+</form>
+
 <h1> Result </h1>
 
 #if($alteredSentence)
   <h3 class="alteredSentence">$alteredSentence</h3>
 #end
-
-<!-- <h1> Scrabble detector</h1>
-#if($scrabbleScore > 18)
-  <h3 class="well">$year is a leap year!</h3>
-#else
-  <h3 class="well">$year is not a leap year!</h3>
-#end -->

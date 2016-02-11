@@ -16,8 +16,20 @@ public class AppTest extends FluentTest {
 
   @ClassRule
   public static ServerRule server = new ServerRule();
-
-
+  @Test
+  public void rootTest() {
+      goTo("http://localhost:4567/");
+      assertThat(pageSource()).contains("in a sentence");
+  }
+  @Test
+  public void replaceWord() {
+    goTo("http://localhost:4567");
+    fill("#sentence").with("I am a cat");
+    fill("#replaceWord").with("cat");
+    fill("#replaceWith").with("dog");
+    submit(".btn");
+    assertThat(pageSource()).contains("I am a dog");
+  }
 
   @Test
   public void replaceWord_findsAWordAndReplacesAllThoseWords() {
